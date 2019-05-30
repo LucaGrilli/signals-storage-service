@@ -30,7 +30,9 @@ createConnection()
     const receiverService = Container.get(SignalReceiverService);
 
     client.on('message', (topic, message) => {
+        console.log("reception of the MQTT signal");
         receiverService.save(message);
+        console.log("rescue MQTT signal");
     })
 
     app.listen(port, () => {
